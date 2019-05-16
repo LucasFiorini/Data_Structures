@@ -1,18 +1,16 @@
-#include "list.hpp"
-#include<iostream>
+#include "../../include/list/list.hpp"
+#include <iostream>
 #include <unistd.h>
-
 
 using namespace std;
 
-List::List(){
-	first = NULL;
-	last = NULL;
+List::List() {
+	first = last = NULL;
 	size = 0;	
 }
 
 //list destructor
-List::~List(){
+List::~List() {
 	Node* aux = first;
 	Node* del;
 	while(aux != NULL) {
@@ -20,31 +18,28 @@ List::~List(){
 		aux = aux->next;
 		delete del;
 	}
-	
 	// clear the list head and tail pointers
-	first = NULL;
-	last = NULL;
+	first = last = NULL;
 }
 
 //Insert with no especification where, inserts by the end of the list
-void List::insert(int d){
+void List::insert(int d) {
 	Node* newNode = new Node(d);
 	//if list is empty, than insert the element
 	if(empty()) {
 		first = newNode;
 		last = newNode;
-		size++;
 	} else { // insert in the end if is not empty
 		newNode->previous = last;
 		last->next = newNode;
 		last = newNode;
-		size++;
 	}
+	++size;
 }
 
 //Retrun true if the first element is null
-inline bool List::empty(){
-	return(first == NULL);
+inline bool List::empty() {
+	return (first == NULL);
 }
 
 void List::print() {
@@ -57,11 +52,11 @@ void List::print() {
 	}
 }
 
-void List::printReverse(){
+void List::printReverse() {
 	printReverse(first,0);
 }
 
-void List::printReverse(Node* n, int node){
+void List::printReverse(Node* n, int node) {
 	if(n->next == NULL) {
 		cout << "Node " << node << " : " << n->data <<endl;
 	} else {
@@ -79,13 +74,11 @@ void List::remove(unsigned int position) {
 			delete aux;
 		} else {
 			Node* remove = first->next;
-				
 			while((remove != NULL) and (i < position)) {
 				i++;
 				aux = remove;
 				remove = remove->next;
 			}
-				
 			if(remove == last){
 				last = aux;
 				aux->next = NULL;
@@ -95,14 +88,14 @@ void List::remove(unsigned int position) {
 				remove->next->previous = aux;
 				delete remove;
 			}
-			size--;
+			--size;
 		}
     } else {
 		cout << "error" << endl;
 	}
 }
 
-void List::insertEnd(int data){
+void List::insertEnd(int data) {
 	Node* newNode = new Node(data);
 	if(empty()) {
 		first = newNode;
@@ -112,7 +105,7 @@ void List::insertEnd(int data){
 		newNode->previous = last;
 		last = newNode;
 	}
-	size++;
+	++size;
 }
 
 void List::insertHead(int data) {
@@ -125,10 +118,10 @@ void List::insertHead(int data) {
 		newNode->next = first;
 		first = newNode;
 	}
-	size++;
+	++size;
 }
 
-bool List::search(int data){
+bool List::search(int data) {
 	Node* iterator = first;
 	while(iterator != NULL)	{
 		if(data == iterator->data) {
@@ -140,16 +133,15 @@ bool List::search(int data){
 	return false;
 }
 
-void List::insertIntoPos(int pos, int data){
+void List::insertIntoPos(int pos, int data) {
 	if(pos == 0) {
 		Node* newNode = new Node(data);
 		newNode->next = first->next;
 		first->previous = newNode;
 		first = newNode;
-		size++;
+		++size;
 		return;
 	}
-
 	Node* iterator = first;
 	int posAux = 0;
 	while(pos > posAux){
@@ -161,20 +153,17 @@ void List::insertIntoPos(int pos, int data){
 	newNode->next = iterator;
 	iterator->previous->next = newNode;
 	iterator->previous = newNode;
-	size++;
+	++size;
 }
 
-bool List::operator==(const List& l){
-    if (l.size != size){
+bool List::operator==(const List& l) {
+    if (l.size != size) {
         return false;
-    }else{
+    } else {
         Node* aux1 = first;
         Node* aux2 = l.first;
-
-        while((aux1 != NULL) and (aux2 != NULL)){
-            if (aux1->data != aux2->data){
-                return false;
-            }
+        while((aux1 != NULL) and (aux2 != NULL)) {
+            if (aux1->data != aux2->data) return false;
             aux1 = aux1->next;
             aux2 = aux2->next;
         }

@@ -1,12 +1,13 @@
-#include<iostream>
-#include "list.cpp"
-#include "node.cpp"
+#include "../../include/list/list.hpp"
+#include "../../include/list/node.hpp"
+#include <iostream>
+
 using namespace std;
 
 int main(){
 	List* l = new List();
 	List* l2 = new List();
-
+    
     for (int i = 0; i < 10; ++i) {
         l->insertHead(i);
         l2->insertHead(i);
