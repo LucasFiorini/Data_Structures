@@ -1,0 +1,14 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.hpp.ghc
+*.hpp.swp
+*.so
+.DS_Store
+*.DS_Store
+*.vscode/
