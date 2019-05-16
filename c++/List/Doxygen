@@ -1,0 +1,4 @@
+PROJECT_NAME = Linked-List
+OUTPUT_DIRECTORY = docs
+INPUT = include
+RECURSIVE = yes
