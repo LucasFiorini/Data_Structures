@@ -25,13 +25,13 @@ MinHeap::MinHeap(int cap, bool rand) {
         }
     }
 
-    clock_t t0, t1;
-	t0 = clock();
+    clock_t start, finish;
+	start = clock();
     for(int i = (capacity/2) -1; i >= 0; i--) {
         heapfy(i);
     }
-	t1 = clock();
-   	cout << "Time enlapsed: "<<(t1 - t0) / (double)CLOCKS_PER_SEC <<"s"<< endl;
+	finish = clock();
+   	cout << "Time enlapsed: "<<(finish - start) / (double)CLOCKS_PER_SEC <<"s"<< endl;
 
 
 }
