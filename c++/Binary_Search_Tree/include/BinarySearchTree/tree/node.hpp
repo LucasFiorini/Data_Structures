@@ -9,8 +9,12 @@ class Node {
         Node();
         Node(TYPE data);
         ~Node();
-        inline TYPE getElement();
+        TYPE getElement();
         inline void addElement(TYPE element);
+        Node* getRightChild();
+        Node* getLeftChild();
+        void setRightChild(Node *node);
+        void setLeftChild(Node *node);
     
     private:
         TYPE data;
