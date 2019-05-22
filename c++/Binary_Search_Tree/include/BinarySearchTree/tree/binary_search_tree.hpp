@@ -16,6 +16,7 @@ class BinarySearchTree {
         BinarySearchTree(TYPE rootElement);
         BinarySearchTree();
         ~BinarySearchTree();
+        TYPE getRoot();
         unsigned getIndex(TYPE element);
         unsigned getLevel(TYPE element);
         bool contains(TYPE element);
@@ -23,7 +24,7 @@ class BinarySearchTree {
         STATUS addElement(std::vector<TYPE> *elements);
         STATUS removeElement(TYPE element);
         TYPE removeElement(unsigned index);
-        inline unsigned getElementAmount();
+        unsigned getElementAmount();
         inline unsigned getLevelAmount();
     
     private:

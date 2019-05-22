@@ -23,6 +23,9 @@ BinarySearchTree::~BinarySearchTree() {
     
 }
 
+TYPE BinarySearchTree::getRoot() {
+    return this->root->getElement();
+}
 
 TYPE BinarySearchTree::removeElement(unsigned index) {
     
@@ -41,11 +44,20 @@ unsigned BinarySearchTree::getLevel(TYPE element) {
 }
 
 bool BinarySearchTree::contains(TYPE element) {
-
+    return (searchNode(element) != NULL);
 }
 
-Node* BinarySearchTree::searchNode(Node *node) {
-
+Node* BinarySearchTree::searchNode(TYPE element) {
+    Node *tmpNode = this->root;
+    TYPE currentElement;
+    while (tmpNode != NULL) {
+        currentElement = tmpNode->getElement();
+        if (element == currentElement) 
+            return tmpNode;
+        else
+            tmpNode = (element > currentElement) ? tmpNode->getRightChild() : tmpNode->getLeftChild();
+    }
+    return NULL;
 }
 
 BinarySearchTree::STATUS BinarySearchTree::addElement(TYPE element) {
@@ -79,7 +91,7 @@ BinarySearchTree::STATUS BinarySearchTree::addElement(std::vector<TYPE> *element
     return BinarySearchTree::STATUS::_SUCCESS_;
 }
 
-inline unsigned BinarySearchTree::getElementAmount() {
+unsigned BinarySearchTree::getElementAmount() {
     return this->elementAmount;
 }
 
