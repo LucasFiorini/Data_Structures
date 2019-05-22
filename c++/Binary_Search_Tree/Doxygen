@@ -1,0 +1,4 @@
+PROJECT_NAME = Binary-Search-Tree
+OUTPUT_DIRECTORY = docs
+INPUT = include
+RECURSIVE = yes
