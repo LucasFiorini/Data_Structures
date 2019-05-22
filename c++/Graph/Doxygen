@@ -1,0 +1,4 @@
+PROJECT_NAME = Graph
+OUTPUT_DIRECTORY = docs
+INPUT = include
+RECURSIVE = yes
