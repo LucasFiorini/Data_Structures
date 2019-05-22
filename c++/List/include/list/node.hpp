@@ -1,7 +1,6 @@
 #ifndef NODE_H
 #define NODE_H 1
 
-typedef int Data;
 
 class Node {
 	
@@ -13,11 +12,11 @@ class Node {
 		
 		Node* previous;
 		
-		Data data;
+		int data;
 	
 	public:
 		
-		Node(Data d);
+		Node(int d);
 		
 		Node();
 
