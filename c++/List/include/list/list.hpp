@@ -3,7 +3,6 @@
 
 #include "node.hpp"
 
-typedef int Data;
 
 class List {
 		
@@ -21,7 +20,7 @@ class List {
 		* \param integer 'd' to be inserted
 		* \return void 
 		*/
-		void insert(Data d);
+		void insert(int d);
 		
 	       /**
 		* This method insert a node in the end
@@ -31,7 +30,7 @@ class List {
 		* \param integer 'd' to be inserted
 		* \return void 
 		*/
-		void insertEnd(Data d);
+		void insertEnd(int d);
 				
 	       /**
 		* This method insert a node at the begining
@@ -41,7 +40,7 @@ class List {
 		* \param integer 'd' to be inserted
 		* \return void
 		*/
-		void insertHead(Data d);
+		void insertHead(int d);
 		
 	       /**
 		* This method insert a node into a specific 
@@ -52,7 +51,7 @@ class List {
 		* integer 'd' to be inserted
 		* \return void
 		*/
-		void insertIntoPos(int pos, Data d);
+		void insertIntoPos(int pos, int d);
 		
 	       /**
 		* This method prints the entire list
@@ -100,7 +99,7 @@ class List {
 		* \param integer 'd' to be searched for
 		* \return boolean
 		*/
-		bool search(Data d);
+		bool search(int d);
 		
 	       /**
 		* This method overloads the == operator
