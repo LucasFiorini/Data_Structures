@@ -6,6 +6,11 @@
 int main() {
     TYPE kkk = 10;
     BinarySearchTree *bst = new BinarySearchTree(kkk);
-    std::cout << bst->contains(11);
+    bst->addElement(25);
+    bst->addElement(5);
+    bst->addElement(20);
+    bst->addElement(23);
+    bst->addElement(42);
+    std::cout << bst->getLargestElement();
     return 0;
 }

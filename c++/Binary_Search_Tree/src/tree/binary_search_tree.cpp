@@ -31,7 +31,52 @@ TYPE BinarySearchTree::removeElement(unsigned index) {
     
 }
 
+TYPE BinarySearchTree::getLargestElement() {
+    Node *tmpNode = this->root;
+    Node *fatherNode = NULL;
+    while (tmpNode != NULL) {
+        fatherNode = tmpNode;
+        tmpNode = tmpNode->getRightChild();
+    }
+    return fatherNode->getElement();
+}
+
+TYPE BinarySearchTree::getMinorElement() {
+    Node *tmpNode = this->root;
+    Node *fatherNode = NULL;
+    while (tmpNode != NULL) {
+        fatherNode = tmpNode;
+        tmpNode = tmpNode->getLeftChild();
+    }
+    return fatherNode->getElement();
+}
+
 BinarySearchTree::STATUS BinarySearchTree::removeElement(TYPE element) {
+    if (!contains(element)) return BinarySearchTree::STATUS::_FAILUIRE_;
+    Node *targetNode = searchNode(element);
+    if (isLeaf(targetNode)) {
+        targetNode->~Node();
+    } else {
+        Node *tmpNode = this->root;
+        TYPE currentElement = tmpNode->getElement();
+        if (element > currentElement) {
+            if (tmpNode->getRightChild()->getElement() == element) {
+                //Filho direito dele tem q ser apagado;
+            } else if (tmpNode->getLeftChild()->getElement() == element){
+                //Filho esquerdo tem q ser apagado;
+            } else {
+                tmpNode = tmpNode->getRightChild();
+            }
+        } else {
+            if (tmpNode->getLeftChild()->getElement() == element) {
+                //filho esquerdo tem q ser apagado
+            } else if (tmpNode->getRightChild()->getElement() == element) {
+                //filho direito tem q ser apagado
+            } else {
+                tmpNode = tmpNode->getLeftChild();
+            }
+        }
+    }
 
 }
 
@@ -69,10 +114,13 @@ BinarySearchTree::STATUS BinarySearchTree::addElement(TYPE element) {
         
         Node *tmpNode = this->root;
         Node *fatherNode = NULL;
+        TYPE currentElement;
 
         while (tmpNode != NULL) {
+            currentElement = tmpNode->getElement();
             fatherNode = tmpNode;
-            tmpNode = (element > tmpNode->getElement()) ? tmpNode->getRightChild() : tmpNode->getLeftChild();
+            if (element == currentElement) return BinarySearchTree::STATUS::_FAILUIRE_;
+            tmpNode = (element > currentElement) ? tmpNode->getRightChild() : tmpNode->getLeftChild();
         }
         if (element > fatherNode->getElement()) {
             fatherNode->setRightChild(new Node(element));
@@ -97,4 +145,10 @@ unsigned BinarySearchTree::getElementAmount() {
 
 inline unsigned BinarySearchTree::getLevelAmount() {
     return this->levelAmount;
+}
+
+bool BinarySearchTree::isLeaf(Node *node) {
+    return (
+        node->getLeftChild() == NULL && node->getRightChild() == NULL
+        );
 }
