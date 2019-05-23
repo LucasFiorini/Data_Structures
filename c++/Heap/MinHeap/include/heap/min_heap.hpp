@@ -54,6 +54,9 @@ class MinHeap {
 		 * \return void.
 		 */
         void heapfy(int i);
+
+		void heapUp(int i);
+		inline int father(int i);
     public:
         /**
 		 * This constructor builds a Heap and Heapfies it.
@@ -64,7 +67,8 @@ class MinHeap {
          * and bool option to use random values.
 		 */
         MinHeap(int cap, bool rand);
-
+		
+		bool isHeap();
         /**
 		 * This destructor free up the memory.
 		 * \author Lucas Fiorini Braga
@@ -78,6 +82,8 @@ class MinHeap {
 		 * \return void.
 		 */
 	    void print();
+		void insert(int d);
+		MinHeap(int cap);
 
 };
 

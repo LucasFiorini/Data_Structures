@@ -36,6 +36,19 @@ MinHeap::MinHeap(int cap, bool rand) {
 
 }
 
+MinHeap::MinHeap(int cap) {
+	capacity = cap;
+	array = new int[cap];
+}
+
+void MinHeap::insert(int qtd) {
+	for(int i = 0; i < qtd; i++) {
+		array[i] = qtd-i;
+		heapUp(i);
+	}
+}
+
+
 MinHeap::~MinHeap() {
     delete[] array;
 }
@@ -45,6 +58,36 @@ inline void MinHeap::swap(int x,int y){
     array[x] = array[y];
     array[y] = temp;
 }
+
+inline int MinHeap::father(int i) {
+	return ((i-1)/2);
+}
+
+
+void MinHeap::heapUp(int i) {
+	int fatherIndex = father(i);
+	if((array[i] < array[fatherIndex])) {
+		swap(i,fatherIndex);
+		heapUp(fatherIndex);
+	}
+}
+
+bool MinHeap::isHeap(){
+        for (int i=0; i<=(capacity-2)/2; i++) 
+        { 
+            if (array[2*i +1] < array[i]) {
+                    cout << "Nao e um heap" << endl;
+                    return false; 
+            }
+     
+            if (2*i+2 < capacity && array[2*i+2] < array[i]) {
+                    cout << "Nao e um heap" << endl;
+                    return false; 
+            }
+        } 
+        cout << "E um heap" << endl;
+        return true; 
+} 
 
 
 inline int MinHeap::leftSon(int i) {
@@ -74,7 +117,7 @@ void MinHeap::heapfy(int i) {
 
 void MinHeap::print() {
     for(int i = 0; i < capacity; i++) {
-        cout << "Node #1: " << array[i] << "\n";
+		cout << "Node #"<< i << ": " << array[i] << "\n";
     }
     cout << "\n";
 }

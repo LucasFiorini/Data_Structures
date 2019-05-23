@@ -33,7 +33,7 @@ int main() {
     }
     
     MinHeap *m;
-
+	/*
     if(answer == 'y' || answer == 'Y') {
         system("clear");
         m = new MinHeap(numberOfNodes,true);
@@ -41,7 +41,13 @@ int main() {
         system("clear");
         m = new MinHeap(numberOfNodes,false);
     }
-    //m->print();
+    m->isHeap();
     delete m;
-
+	*/
+	m = new MinHeap(numberOfNodes);
+	
+	m->insert(numberOfNodes);
+	m->isHeap();
+	m->print();	
+	return 0;
 }
