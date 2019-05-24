@@ -1,0 +1,8 @@
+graph Graph01 {
+    b : c;
+    c : d;
+}
+
+graph Graph02 valued {
+    b : c;
+}
