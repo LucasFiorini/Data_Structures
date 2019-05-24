@@ -46,7 +46,7 @@ void List::print() {
 	Node* aux = first;
 	unsigned short i = 0;
 	while(aux != NULL) {
-		cout << "Node " << i << " : " << aux->data << endl;
+		cout << "Node" << i << " : " << aux->data << endl;
 		aux = aux->next;
 		i++;
 	}

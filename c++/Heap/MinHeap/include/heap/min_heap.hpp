@@ -55,7 +55,25 @@ class MinHeap {
 		 */
         void heapfy(int i);
 
+	   /**
+		* This method shift up the son nodes that are
+		* smaller than it's father. It calls itself resursiveley
+		* for every time a son is smaller than it's father
+		* \author Lucas Fiorini Braga
+
+		* \param index of the son
+		* \return void 
+		*/
 		void heapUp(int i);
+
+	   /**
+		* This method returns the father's index of a 
+		* given son
+		* \author Lucas Fiorini Braga
+
+		* \param integer index of the son
+		* \return father index
+		*/
 		inline int father(int i);
     public:
         /**
@@ -68,7 +86,6 @@ class MinHeap {
 		 */
         MinHeap(int cap, bool rand);
 		
-		bool isHeap();
         /**
 		 * This destructor free up the memory.
 		 * \author Lucas Fiorini Braga
@@ -82,6 +99,15 @@ class MinHeap {
 		 * \return void.
 		 */
 	    void print();
+		
+	   /**
+		* This methor insert decreasing order elements into 
+		* the array. Also cals heapUp(int i) after each insertion
+		* \author Lucas Fiorini Braga
+
+		* \param data to be inserted
+		* \return void
+		*/
 		void insert(int d);
 		MinHeap(int cap);
 
