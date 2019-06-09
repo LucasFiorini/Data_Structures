@@ -101,16 +101,18 @@ class MinHeap {
 	    void print();
 		
 	   /**
-		* This methor insert decreasing order elements into 
-		* the array. Also cals heapUp(int i) after each insertion
+		* This method insert decreasing order elements into
+		* the array. Also calls heapUp(int i) after each insertion
 		* \author Lucas Fiorini Braga
 
 		* \param data to be inserted
 		* \return void
 		*/
 		void insert(int d);
-		MinHeap(int cap);
 
+		void insertRandom(int d);
+		MinHeap(int cap);
+		bool isHeap();
 };
 
 #endif

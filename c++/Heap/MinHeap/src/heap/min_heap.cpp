@@ -36,6 +36,17 @@ MinHeap::MinHeap(int cap, bool rand) {
 
 }
 
+void MinHeap::insertRandom(int qtd) {
+    mt19937 generator;
+    generator.seed((unsigned int)time(0));
+    uniform_int_distribution<uint32_t> dice(1,100);
+
+    for (int i = 0; i < qtd; ++i) {
+        array[i] = dice(generator);
+        heapUp(i);
+    }
+}
+
 MinHeap::MinHeap(int cap) {
 	capacity = cap;
 	array = new int[cap];
@@ -51,6 +62,7 @@ void MinHeap::insert(int qtd) {
 
 MinHeap::~MinHeap() {
     delete[] array;
+    cout << "Structure deleted!" << endl;
 }
 
 inline void MinHeap::swap(int x,int y){
