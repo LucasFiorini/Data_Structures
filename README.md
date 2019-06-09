@@ -46,7 +46,7 @@ Standart documentation based on: [Emoji List](https://gist.github.com/parmentf/0
 
 #### Control Task List
 - [x] Update ReadMe
-- [ ] Code review.
+- [x] Code review.
 - [ ] Create Makefile
 #### Project Customer
 This project was developed as study project. There isn't customer.
