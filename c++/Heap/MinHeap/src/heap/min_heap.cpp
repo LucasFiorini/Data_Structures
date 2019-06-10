@@ -84,23 +84,6 @@ void MinHeap::heapUp(int i) {
 	}
 }
 
-bool MinHeap::isHeap(){
-        for (int i=0; i<=(capacity-2)/2; i++) 
-        { 
-            if (array[2*i +1] < array[i]) {
-                    cout << "Nao e um heap" << endl;
-                    return false; 
-            }
-     
-            if (2*i+2 < capacity && array[2*i+2] < array[i]) {
-                    cout << "Nao e um heap" << endl;
-                    return false; 
-            }
-        } 
-        cout << "E um heap" << endl;
-        return true; 
-} 
-
 
 inline int MinHeap::leftSon(int i) {
     return (2*i +1);
@@ -132,4 +115,24 @@ void MinHeap::print() {
 		cout << "Node #"<< i << ": " << array[i] << "\n";
     }
     cout << "\n";
+}
+
+
+MinHeap*  MinHeap::meld(MinHeap* first, MinHeap* second) {
+
+    MinHeap* m = new MinHeap((first->capacity + second->capacity));
+    int i;
+    for (i = 0; i < first->capacity; i++) {
+        m->array[i] = first->array[i];
+        m->heapUp(i);
+    }
+
+
+    int k = 0;
+    for (int j = i; j < (second->capacity + first->capacity); ++j) {
+        m->array[j] = second->array[k];
+        k++;
+        m->heapUp(j);
+    }
+    return m;
 }

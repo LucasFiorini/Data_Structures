@@ -69,7 +69,14 @@ int main() {
         }
     }
 
-    m->isHeap();
+    MinHeap* n = new MinHeap(10,false);
+
+    MinHeap* nono = MinHeap::meld(n,m);
+
+
+    m->print();
+    n->print();
+    nono->print();
 
 	return 0;
 }
