@@ -15,6 +15,19 @@ Queue::Queue(char d) {
 }
 
 
+~Queue::Queue() {
+    Node* aux = this.first;
+    Node* del;
+    while(aux != NULL) {
+        del = aux;
+        aux = aux->next;
+        delete del;
+    }
+
+    first = last = NULL;
+}
+
+
 void Queue::push(char d) {
 	Node* n = new Node(d);
 	if(empty()) {
@@ -62,11 +75,17 @@ unsigned int Queue::size() {
 
 void Queue::print() {
 	Node* aux = first;
-	
+
+	cout << "Head -> ";
 	while(aux != NULL) {
-		cout << aux->data << " -> ";
-		aux = aux->next; 
+	    if(aux->next == NULL){
+            cout << aux->data;
+        } else {
+            cout << aux->data << " -> ";
+        }
+		aux = aux->next;
 	}
+	cout << " <- Tail" << endl;
 
 }
 
