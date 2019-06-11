@@ -2,7 +2,7 @@
 #define NODE_H 1
 
 class Node {
-    fiend class Stack;
+    friend class Stack;
 
 private:
     Node* next;

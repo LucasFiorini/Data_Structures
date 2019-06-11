@@ -1,3 +1,4 @@
+#include "node.hpp"
 #ifndef STACK_H
 #define STACK_H 1
 
@@ -9,10 +10,13 @@ public:
     void copyToArray(int arr[]);
     unsigned int peek();
     unsigned int pop();
-    void push(int data);
+    void push(unsigned int data);
+    inline bool empty();
+    void print();
 private:
-    Node* head, tail;
+    Node* head;
+    Node* tail;
     unsigned int size;
 };
 
-#define
+#endif
