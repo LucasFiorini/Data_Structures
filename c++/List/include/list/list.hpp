@@ -119,7 +119,8 @@ class List {
 		* \return boolean 
 		*/
 		inline bool empty();
-	
+		//copy constructor TODO
+		//operator + TODO	
 	private:
 		//pointer to the first node
 		Node* first;
