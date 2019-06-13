@@ -2,78 +2,6 @@
 #define MINHEAP
 
 class MinHeap {
-    private:
-        int* array;
-        //heap capacity
-        int capacity;
-
-        /**
-		 * This method changes two values of
-         * the object's array
-		 * @author Lucas Fiorini Braga
-
-		 * @param x y Both integer values that represents
-         * the array position to be swapped.
-		 * @return void.
-		 */
-        inline void swap(int x, int y);
-
-        /**
-		 * This method is used to find left son
-         * of a given node, the value can be wrong
-         * indicating that there is no left son.
-		 * @author Lucas Fiorini Braga
-
-		 * @param i The array index representing
-         * the node.
-		 * @return The index of the left son.
-		 */
-        inline int leftSon(int i);
-
-        /**
-		 * This method is used to find right son
-         * of a given node, the value can be wrong
-         * indicating that there is no right son.
-		 * @author Lucas Fiorini Braga
-
-		 * @param i The array index representing
-         * the node.
-		 * @return The index of the rigth son.
-		 */
-        inline int rightSon(int i);
-
-        /**
-		 * This method is a recursive way to verify
-         * the necessity to swap in between father and son
-         * respectively.
-		 * @author Lucas Fiorini Braga
-
-		 * @param i The array index representing
-         * the father node.
-		 * @return void.
-		 */
-        void heapfy(int i);
-
-	   /**
-		* This method shift up the son nodes that are
-		* smaller than it's father. It calls itself resursiveley
-		* for every time a son is smaller than it's father
-		* @author Lucas Fiorini Braga
-
-		* @param index of the son
-		* @return void
-		*/
-		void heapUp(int i);
-
-	   /**
-		* This method returns the father's index of a 
-		* given son
-		* @author Lucas Fiorini Braga
-
-		* @param integer index of the son
-		* @return father index
-		*/
-		inline int father(int i);
     public:
         /**
 		 * This constructor builds a Heap and Heapfies it.
@@ -138,6 +66,78 @@ class MinHeap {
 		 * @return address of the new min heap
 		 */
 		static MinHeap* meld(MinHeap* first, MinHeap* second);
+private:
+    int* array;
+    //heap capacity
+    int capacity;
+
+    /**
+     * This method changes two values of
+     * the object's array
+     * @author Lucas Fiorini Braga
+
+     * @param x y Both integer values that represents
+     * the array position to be swapped.
+     * @return void.
+     */
+    inline void swap(int x, int y);
+
+    /**
+     * This method is used to find left son
+     * of a given node, the value can be wrong
+     * indicating that there is no left son.
+     * @author Lucas Fiorini Braga
+
+     * @param i The array index representing
+     * the node.
+     * @return The index of the left son.
+     */
+    inline int leftSon(int i);
+
+    /**
+     * This method is used to find right son
+     * of a given node, the value can be wrong
+     * indicating that there is no right son.
+     * @author Lucas Fiorini Braga
+
+     * @param i The array index representing
+     * the node.
+     * @return The index of the rigth son.
+     */
+    inline int rightSon(int i);
+
+    /**
+     * This method is a recursive way to verify
+     * the necessity to swap in between father and son
+     * respectively.
+     * @author Lucas Fiorini Braga
+
+     * @param i The array index representing
+     * the father node.
+     * @return void.
+     */
+    void heapfy(int i);
+
+    /**
+     * This method shift up the son nodes that are
+     * smaller than it's father. It calls itself resursiveley
+     * for every time a son is smaller than it's father
+     * @author Lucas Fiorini Braga
+
+     * @param index of the son
+     * @return void
+     */
+    void heapUp(int i);
+
+    /**
+     * This method returns the father's index of a
+     * given son
+     * @author Lucas Fiorini Braga
+
+     * @param integer index of the son
+     * @return father index
+     */
+    inline int father(int i);
 };
 
 #endif

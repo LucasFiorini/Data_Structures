@@ -41,10 +41,16 @@ void MinHeap::insertRandom(int qtd) {
     generator.seed((unsigned int)time(0));
     uniform_int_distribution<uint32_t> dice(1,100);
 
+    clock_t start, finish;
+    start = clock();
+
     for (int i = 0; i < qtd; ++i) {
         array[i] = dice(generator);
         heapUp(i);
     }
+
+    finish = clock();
+    cout << "Time enlapsed: "<<(finish - start) / (double)CLOCKS_PER_SEC <<"s"<< endl;
 }
 
 MinHeap::MinHeap(int cap) {
@@ -53,16 +59,20 @@ MinHeap::MinHeap(int cap) {
 }
 
 void MinHeap::insert(int qtd) {
+    clock_t start, finish;
+    start = clock();
 	for(int i = 0; i < qtd; i++) {
 		array[i] = qtd-i;
 		heapUp(i);
 	}
+    finish = clock();
+    cout << "Time enlapsed: "<<(finish - start) / (double)CLOCKS_PER_SEC <<"s"<< endl;
 }
 
 
 MinHeap::~MinHeap() {
     delete[] array;
-    cout << "Structure deleted!" << endl;
+    cout << "\nStructure deleted!" << endl;
 }
 
 inline void MinHeap::swap(int x,int y){
